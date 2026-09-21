@@ -1,0 +1,374 @@
+/* ===== CSS Reset & Variables ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-primary:    #2d6a4f;
+  --color-accent:     #52b788;
+  --color-seeding:    #457b9d;
+  --color-planting:   #52b788;
+  --color-harvest:    #e07c24;
+  --color-error:      #d62828;
+  --color-bg:         #f8f9fa;
+  --color-bg-card:    #ffffff;
+  --color-text:       #212529;
+  --color-text-muted: #6c757d;
+  --color-border:     #dee2e6;
+  --radius:           6px;
+  --shadow:           0 1px 4px rgba(0,0,0,.08);
+}
+
+body {
+  font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Header ===== */
+header {
+  background: var(--color-primary);
+  color: #fff;
+  padding: 16px 24px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+}
+
+/* ===== Tab Nav ===== */
+.tab-nav {
+  display: flex;
+  background: #fff;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 12px 0;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-weight: 500;
+  transition: color .2s, border-bottom .2s;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+}
+
+.tab-btn:hover {
+  color: var(--color-primary);
+}
+
+.tab-btn.active {
+  color: var(--color-primary);
+  border-bottom: 3px solid var(--color-primary);
+  font-weight: 700;
+}
+
+/* ===== Main / Sections ===== */
+main {
+  flex: 1;
+  padding: 24px 16px;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+h2 {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ===== Schedule Form ===== */
+.schedule-form {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  background: var(--color-bg-card);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+  align-items: end;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.form-group select,
+.form-group input[type="number"],
+.form-group input[type="date"] {
+  padding: 8px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-size: .95rem;
+  color: var(--color-text);
+  background: #fff;
+  transition: border-color .2s;
+  width: 100%;
+}
+
+.form-group select:focus,
+.form-group input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.form-btn button {
+  width: 100%;
+  padding: 9px 0;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s;
+}
+
+.form-btn button:hover {
+  background: var(--color-accent);
+}
+
+/* ===== Error Message ===== */
+.error-msg {
+  background: #fde8e8;
+  color: var(--color-error);
+  border: 1px solid var(--color-error);
+  border-radius: var(--radius);
+  padding: 10px 16px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ===== Result Table ===== */
+#result-table {
+  margin-bottom: 24px;
+  overflow-x: auto;
+}
+
+#result-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+#result-table th,
+#result-table td {
+  padding: 10px 14px;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+  font-size: .9rem;
+  white-space: nowrap;
+}
+
+#result-table th {
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+}
+
+#result-table tr:last-child td {
+  border-bottom: none;
+}
+
+#result-table tr:nth-child(even) td {
+  background: #f1f8f4;
+}
+
+/* ===== Gantt Chart ===== */
+#gantt-container {
+  background: var(--color-bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  overflow-x: auto;
+  margin-bottom: 24px;
+}
+
+#gantt-svg {
+  display: block;
+  min-width: 400px;
+}
+
+/* ===== Kanban ===== */
+.progress-bar {
+  background: var(--color-bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 12px 20px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+.progress-bar span {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-primary);
+}
+
+.task-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* Task Card */
+.task-card {
+  background: var(--color-bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px 16px 16px 20px;
+  border-left: 5px solid transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: opacity .2s;
+}
+
+.task-card.type-seeding  { border-left-color: var(--color-seeding); }
+.task-card.type-planting { border-left-color: var(--color-planting); }
+.task-card.type-harvest  { border-left-color: var(--color-harvest); }
+
+.task-card.done {
+  opacity: .5;
+}
+
+.task-card.done .task-info {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+}
+
+.task-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: .78rem;
+  font-weight: 700;
+  color: #fff;
+  width: fit-content;
+}
+
+.type-seeding  .task-badge { background: var(--color-seeding); }
+.type-planting .task-badge { background: var(--color-planting); }
+.type-harvest  .task-badge { background: var(--color-harvest); }
+
+.task-info {
+  font-size: .9rem;
+  line-height: 1.6;
+}
+
+.task-info strong {
+  font-weight: 700;
+}
+
+.task-done-btn {
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 5px 14px;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-size: .85rem;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  transition: background .15s, color .15s;
+}
+
+.task-done-btn:hover {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
+}
+
+.task-card.done .task-done-btn {
+  background: #e9ecef;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 16px;
+  font-size: .8rem;
+  color: var(--color-text-muted);
+  background: #fff;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ===== RWD: Tablet (768–1023px) ===== */
+@media (max-width: 1023px) {
+  .schedule-form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .task-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===== RWD: Mobile (<768px) ===== */
+@media (max-width: 767px) {
+  header h1 {
+    font-size: 1.2rem;
+  }
+
+  main {
+    padding: 16px 12px;
+  }
+
+  .schedule-form {
+    grid-template-columns: 1fr;
+  }
+
+  .task-list {
+    grid-template-columns: 1fr;
+  }
+
+  #result-table {
+    overflow-x: auto;
+  }
+
+  #gantt-container {
+    overflow-x: auto;
+  }
+}
