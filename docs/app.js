@@ -3,11 +3,12 @@
 /* ===================================================
    模擬資料
 =================================================== */
+// 育苗期：播種後第 8 天定植上架；生長期：上架後 14 天（2 週）出貨
 const CROPS = [
-  { id: 'butter',  name: '奶油萵苣', seedDays: 7, growDays: 18 },
-  { id: 'romaine', name: '蘿蔓生菜', seedDays: 7, growDays: 21 },
-  { id: 'arugula', name: '芝麻葉',   seedDays: 5, growDays: 14 },
-  { id: 'pakchoi', name: '小白菜',   seedDays: 5, growDays: 16 },
+  { id: 'butter',  name: '奶油萵苣', seedDays: 8, growDays: 14 },
+  { id: 'romaine', name: '蘿蔓生菜', seedDays: 8, growDays: 14 },
+  { id: 'arugula', name: '芝麻葉',   seedDays: 8, growDays: 14 },
+  { id: 'pakchoi', name: '小白菜',   seedDays: 8, growDays: 14 },
 ];
 
 const TASKS = [
