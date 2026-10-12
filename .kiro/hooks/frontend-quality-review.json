@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Frontend quality review",
+      "trigger": "PostFileSave",
+      "matcher": "^docs/.*\\.(html|css|js)$",
+      "action": {
+        "type": "agent",
+        "prompt": "一個 docs/ 資料夾內的前端檔案剛被儲存。請針對該檔案執行以下品質檢查，**只列出發現的問題，不要自動修改任何檔案，也不要執行下一個 Task**。\n\n## 檢查項目\n\n1. **HTML 結構與語意標籤**：是否使用正確的語意元素（header、main、nav、section、footer 等），結構是否合理。\n2. **響應式版面**：CSS 是否包含 media query，是否同時支援桌面與手機版面。\n3. **JavaScript 明顯錯誤**：語法錯誤、未定義變數、事件綁定問題、潛在的 null 存取等。\n4. **相對路徑**：圖片、CSS、JavaScript 的引用是否全部使用相對路徑，不得出現絕對路徑或外部 URL。\n5. **無障礙基本問題**：img 是否缺少 alt、表單 input 是否缺少對應 label、互動元素是否可鍵盤操作。\n6. **範圍外功能**：是否加入了 requirements.md 未要求的功能（如登入、通知、資料持久化等）。\n7. **禁止技術**：是否使用了 Node.js、Vite、React 或其他前端框架、後端程式、資料庫連線、外部套件或 CDN。\n\n## 回報格式\n\n若發現問題，請以下列格式逐一列出：\n\n**檔案**：`<檔案路徑>`\n**問題**：<說明問題內容>\n**建議修正**：<修正方式>\n\n若無發現任何問題，回覆：「✅ 無發現問題」。"
+      }
+    }
+  ]
+}
